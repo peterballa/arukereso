@@ -26,6 +26,10 @@ class CreateOrderTable extends Migration
             $table->string('delivery_address')->nullable(false);
             $table->string('status')->nullable(false);
             $table->timestamps();
+
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
         });
     }
 

@@ -20,9 +20,9 @@ class OrderCreateRequest extends FormRequest
             'deliveryZipCode' => 'required|string|max:4',
             'deliveryCity' => 'required|string|max:255',
             'deliveryAddress' => 'required|string|max:255',
-//            'products.*.name' => 'required|string|max:255',
-//            'products.*.quantity' => 'required|numeric|gt:0',
-//            'products.*.gross_price' => 'required|numeric|gt:0',
+            'products.*.name' => 'required|string|max:255',
+            'products.*.quantity' => 'required|numeric|gt:0',
+            'products.*.grossPrice' => 'required|numeric|gt:0',
         ];
     }
 }

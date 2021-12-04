@@ -23,6 +23,10 @@ class CreateOrderProductTable extends Migration
             $table->integer('gross_price')->nullable(false)->unsigned();
             $table->integer('quantity')->nullable(false)->unsigned();
             $table->timestamps();
+
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
         });
     }
 
