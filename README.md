@@ -2,50 +2,46 @@
 
 ## Setup
 
-1. Running docker (this docker setting based on https://github.com/harshalone/docker-compose-lamp)
-
-Note: Before run the above command make sure other container doesn't use the localhost and localhost:8080 
+1. Install packages
 
 ```
-> docker-compose up -d
-```
-
-2. Install packages
-
-```
-> docker exec -it lamp-php74 bash
-
 > composer install
 ```
 
-3. Set .env
+2. Set .env
 
-Rename the .env.example and fill the database part with the above
+Copy or rename the .env.example to .env and fill the database part with the above
 
 ```
 DB_CONNECTION=mysql
-DB_HOST=database
+DB_HOST=
 DB_PORT=3306
-DB_DATABASE=docker
-DB_USERNAME=docker
-DB_PASSWORD=docker
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
 ```
 
+3. Generate key
 ```
-> docker exec -it lamp-php74 bash
-
 > php artisan key:generate
 ```
 
-4. Create database schema and migrate csv
+4. Create database schema
 
 ```
-> docker exec -it lamp-php74 bash
-
 > php artisan migrate
+```
 
+5. Create user and get authentication token
+
+For all API requests will be need a user and its token. Below command will create a user and will print a token which will be need.
+So **COPY IT!!!**
+
+```
 > php artisan db:seed
 ```
+
+Token example: 1|ZKkU4jftElLanansy4dIIEbfv24p4Bj1OIJpWpyW
 
 ## Running Code Quality Tools
 
