@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="PSR12 Coding Standard">
+    <description>PSR12 coding standard</description>
+    <file>./app</file>
+    <file>./tests</file>
+    <file>./routes</file>
+    <arg name="extensions" value="php,inc" />
+    <arg name="report" value="summary"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <ini name="memory_limit" value="64M"/>
+    <rule ref="PSR12">
+        <type>warning</type>
+    </rule>
+</ruleset>
