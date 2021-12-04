@@ -24,6 +24,11 @@ class Order extends Model
         'status' => 'string'
     ];
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function setName(string $name): Order
     {
         $this->name = $name;
@@ -47,7 +52,7 @@ class Order extends Model
 
     public function setInvoiceName(string $invoiceName): Order
     {
-        $this->invoiceName = $invoiceName;
+        $this->invoice_name = $invoiceName;
 
         return $this;
     }
@@ -75,7 +80,7 @@ class Order extends Model
 
     public function setDeliveryName(string $deliveryName): Order
     {
-        $this->deliveryName = $deliveryName;
+        $this->delivery_name = $deliveryName;
 
         return $this;
     }

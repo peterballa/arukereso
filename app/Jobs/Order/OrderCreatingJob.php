@@ -38,9 +38,11 @@ class OrderCreatingJob implements ShouldQueue
             ->setDeliveryZipCode($this->request->get('deliveryZipCode'))
             ->setDeliveryCity($this->request->get('deliveryCity'))
             ->setDeliveryAddress($this->request->get('deliveryAddress'))
-            ->setStatus('Új')//TODO crearte enum
-            ->save();
+            ->setStatus('Új');//TODO crearte enum
 
+        $order->save();
+
+        return $order->getId();
         //TODO insert order products
 //        foreach()
     }
