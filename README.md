@@ -37,39 +37,13 @@ DB_PASSWORD=docker
 > php artisan key:generate
 ```
 
-5. Create database schema and migrate csv
+4. Create database schema and migrate csv
 
 ```
 > docker exec -it lamp-php74 bash
 
 > php artisan migrate
-
-> php artisan product:migrate
 ```
-
-4. Deploy
-
-The command below will generate static nuxt files and copy to right places (public and resources/views)
-
-```
-> docker exec -it lamp-php74 bash
-
-> cd nuxt
-
-> npm deploy
-```
-
-## Nuxt development
-
-Only works outside of container
-
-```
-> cd nuxt
-
-> npm run dev
-```
-
-Open in browser http://localhost:3000
 
 ## Running Code Quality Tools
 
