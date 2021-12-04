@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class OrderProduct extends Model
 {
-    protected $table = 'order_product';
-
     protected $casts = [
         'id' => 'integer',
         'order_id' => 'integer',

@@ -8,21 +8,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
-    protected $table = 'order';
-
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
         'email' => 'string',
-        'delivery_mode' => 'string',
-        'invoice_name' => 'string',
-        'invoice_zip_code' => 'string',
-        'invoice_city' => 'string',
-        'invoice_address' => 'string',
-        'delivery_name' => 'string',
-        'delivery_zip_code' => 'string',
-        'delivery_city' => 'string',
-        'delivery_address' => 'string',
+        'deliveryMode' => 'string',
+        'invoiceName' => 'string',
+        'invoiceZipCode' => 'string',
+        'invoiceCity' => 'string',
+        'invoiceAddress' => 'string',
+        'deliveryName' => 'string',
+        'deliveryZipCode' => 'string',
+        'deliveryCity' => 'string',
+        'deliveryAddress' => 'string',
         'status' => 'string'
     ];
 

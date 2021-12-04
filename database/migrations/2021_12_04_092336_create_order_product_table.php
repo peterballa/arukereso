@@ -11,12 +11,12 @@ class CreateOrderProductTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_product', function (Blueprint $table) {
+        Schema::create('order_products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')
                 ->references('id')
-                ->on('order')
+                ->on('orders')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->string('name')->nullable(false);
@@ -28,6 +28,6 @@ class CreateOrderProductTable extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('order_product');
+        Schema::dropIfExists('order_products');
     }
 }
