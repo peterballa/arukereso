@@ -13,3 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+.data/mysql
+.logs/apache2/error.log
+.logs/apache2/other_vhosts_access.log
