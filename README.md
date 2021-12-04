@@ -43,6 +43,8 @@ DB_PASSWORD=docker
 > docker exec -it lamp-php74 bash
 
 > php artisan migrate
+
+> php artisan db:seed
 ```
 
 ## Running Code Quality Tools
