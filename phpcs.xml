@@ -4,6 +4,7 @@
     <file>./app</file>
     <file>./tests</file>
     <file>./routes</file>
+    <file>./database</file>
     <arg name="extensions" value="php,inc" />
     <arg name="report" value="summary"/>
     <arg name="colors"/>
@@ -11,5 +12,9 @@
     <ini name="memory_limit" value="64M"/>
     <rule ref="PSR12">
         <type>warning</type>
+    </rule>
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+        <exclude-pattern>*/database/*</exclude-pattern>
     </rule>
 </ruleset>

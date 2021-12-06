@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         echo "Please copy your authentication token:\n";
-        echo $token."\n";
+        echo $token . "\n";
     }
 }
