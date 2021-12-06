@@ -3,11 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Order;
-use App\Service\Order\OrderStatusEnum;
 use DateTimeImmutable;
 use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use ReflectionClass;
 
 class OrderRepository
 {
@@ -27,13 +25,7 @@ class OrderRepository
             $query->where('id', $orderId);
         }
 
-        $statuses = (new ReflectionClass(OrderStatusEnum::class))->getConstants();
-
         if ($status !== null) {
-            if (!in_array($status, array_values($statuses), true)) {
-                throw new Exception('Invalid status! Please try: ' . implode(', ', $statuses));
-            }
-
             $query->where('status', $status);
         }
 
