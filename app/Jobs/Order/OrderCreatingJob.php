@@ -5,6 +5,7 @@ namespace App\Jobs\Order;
 use App\Http\Requests\API\OrderCreateRequest;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Service\Order\OrderStatusEnum;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -39,7 +40,7 @@ class OrderCreatingJob implements ShouldQueue
             ->setDeliveryZipCode($this->request->get('deliveryZipCode'))
             ->setDeliveryCity($this->request->get('deliveryCity'))
             ->setDeliveryAddress($this->request->get('deliveryAddress'))
-            ->setStatus('Új');//TODO create enum
+            ->setStatus(OrderStatusEnum::NEW);
 
         $order->save();
 

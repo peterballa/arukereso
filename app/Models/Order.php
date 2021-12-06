@@ -21,8 +21,12 @@ class Order extends Model
         'deliveryZipCode' => 'string',
         'deliveryCity' => 'string',
         'deliveryAddress' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s'
     ];
+
+    protected $hidden = ['orderProducts'];
 
     public function getId(): int
     {
@@ -121,5 +125,17 @@ class Order extends Model
     public function getOrderProducts(): Collection
     {
         return $this->orderProducts;
+    }
+
+    public function getGrossTotalAttribute(): int
+    {
+        $grossTotal = 0;
+
+        /** @var OrderProduct $orderProduct */
+        foreach ($this->getOrderProducts() as $orderProduct) {
+            $grossTotal += $orderProduct->getGrossValueAttribute();
+        }
+
+        return $grossTotal;
     }
 }

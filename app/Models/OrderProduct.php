@@ -31,11 +31,21 @@ class OrderProduct extends Model
         return $this;
     }
 
+    public function getGrossPrice(): int
+    {
+        return $this->gross_price;
+    }
+
     public function setGrossPrice(int $grossPrice): OrderProduct
     {
         $this->gross_price = $grossPrice;
 
         return $this;
+    }
+
+    public function getQuantity(): int
+    {
+        return $this->quantity;
     }
 
     public function setQuantity(int $quantity): OrderProduct
@@ -53,5 +63,10 @@ class OrderProduct extends Model
     public function getOrder(): Order
     {
         return $this->order;
+    }
+
+    public function getGrossValueAttribute(): int
+    {
+        return $this->getQuantity() * $this->getGrossPrice();
     }
 }
