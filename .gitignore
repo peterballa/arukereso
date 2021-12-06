@@ -16,3 +16,6 @@ yarn-error.log
 .data/mysql
 .logs/apache2/error.log
 .logs/apache2/other_vhosts_access.log
+/storage/api-docs/api-docs.json
+/resources/views/vendor/l5-swagger/index.blade.php
+/resources/views/vendor/l5-swagger/.gitkeep

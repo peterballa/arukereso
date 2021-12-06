@@ -73,32 +73,39 @@ After this you can run any request with **Send** button
 
 The **?XDEBUG_SESSION_START=PHPSTORM** part in the URL means you can debug in PhpStorm if Xdebug is enable.
 
-On the right side you can convert the request in different code snippet like curl
+On the right side you can convert the request in different code snippet like cURL
 
 ![postman_curl](/postman_curl.png)
+
+
+##Swagger
+
+To generate swagger API documentation, please run the command below. Then you can reach the doc on the **/api/doc** route
+
+```
+> php artisan l5-swagger-generate
+```
+
+For authorization please click on the green lock button with "Authorize title" and give the token in the below format.
+
+![swagger_authorization](/swagger_authorization.png)
 
 ## Running Code Quality Tools
 
 ### Psalm
 
 ```
-> docker exec -it lamp-php74 bash
-
 > composer psalm
 ```
 
 ### Mess Detector
 
 ```
-> docker exec -it lamp-php74 bash
-
 > composer phpmd
 ```
 
 ### Codesniffer
 
 ```
-> docker exec -it lamp-php74 bash
-
 > composer cs
 ```

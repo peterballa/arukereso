@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\API;
 
+use App\Service\Order\DeliveryModeEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use ReflectionClass;
 
 class OrderCreateRequest extends FormRequest
 {
@@ -11,7 +13,21 @@ class OrderCreateRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email',
-            'deliveryMode' => 'required|string|max:255',
+            'deliveryMode' => [
+                'required',
+                'string',
+                'max:255',
+                /**
+                 * @psalm-suppress UnusedClosureParam
+                 */
+                function ($attribute, $value, $fail) {
+                    $deliveryModes = (new ReflectionClass(DeliveryModeEnum::class))->getConstants();
+
+                    if (!in_array($value, array_values($deliveryModes), true)) {
+                        $fail('Invalid delivery mode! Please try: ' . implode(', ', $deliveryModes));
+                    }
+                }
+            ],
             'invoiceName' => 'required|string|max:255',
             'invoiceZipCode' => 'required|max:4',
             'invoiceCity' => 'required|string|max:255',
