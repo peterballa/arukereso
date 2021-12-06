@@ -1,0 +1,689 @@
+{
+	"info": {
+		"_postman_id": "16887ffe-8d0b-4e96-98f4-9d38f916cb9f",
+		"name": "arukereso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test Elek\",\r\n    \"email\": \"test.elek@gmail.com\",\r\n    \"deliveryMode\": \"personal\",\r\n    \"invoiceName\": \"Test Elek Invoice Name\",\r\n    \"invoiceZipCode\": \"4033\",\r\n    \"invoiceCity\": \"Debrecen\",\r\n    \"invoiceAddress\": \"Test utca 5\",\r\n    \"deliveryName\": \"Test Elek Delivery Name\",\r\n    \"deliveryZipCode\": \"4033\",\r\n    \"deliveryCity\": \"Debrecen\",\r\n    \"deliveryAddress\": \"Test utca 5\",\r\n    \"products\": [\r\n        {\r\n            \"name\": \"product 1\",\r\n            \"grossPrice\": 420,\r\n            \"quantity\": 22\r\n        },\r\n        {\r\n            \"name\": \"product 2\",\r\n            \"grossPrice\": 69,\r\n            \"quantity\": 42\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/create?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order With Empty Payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/create?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Invalid Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"alma\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Not Exists Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9999\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By New Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"új\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Completed Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"teljesített\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Invalid Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"invalidstatus\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Created At Start",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createdAtStart\": \"2021-12-05\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Invalid Created At Start",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createdAtStart\": \"12/05/2021\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Created At End",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createdAtEnd\": \"2021-12-05\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query By Invalid Created At End",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createdAtEnd\": \"12/05/2021\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/query?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order To New Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"új\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/updateStatus/1?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"updateStatus",
+						"1"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order To Completed Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"teljesített\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/updateStatus/1?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"updateStatus",
+						"1"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order To Invalid Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"invalidstatus\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/updateStatus/1?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"updateStatus",
+						"1"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order Status Without Paylod",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/orders/updateStatus/1?XDEBUG_SESSION_START=PHPSTORM",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"updateStatus",
+						"1"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "PHPSTORM"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "7|7YlqcEvoPM1ghpDoIHBpgNXXJCdfv0nCJ9MxwT8A",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://arukereso"
+		}
+	]
+}

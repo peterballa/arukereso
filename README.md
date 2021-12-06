@@ -21,6 +21,12 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
+Fill the APP_URL as well e.g.:
+
+```
+APP_URL=http://localhost
+```
+
 3. Generate key
 ```
 > php artisan key:generate
@@ -42,6 +48,34 @@ So **COPY IT!!!**
 ```
 
 Token example: 1|ZKkU4jftElLanansy4dIIEbfv24p4Bj1OIJpWpyW
+
+## Testing
+
+Run the below commands to run the tests. Important! Don't forget set the APP_URL first!
+
+```
+php artisan test
+```
+
+## Postman
+
+There is a arukereso.postman_collection.json in the root. Please import in the postman and on the **Authorization** tab set the token, what you got on database seeding.
+
+![postman_auth](/postman_auth.png)
+
+On **Variables** tab please set the base_url
+
+![postman_variables](/postman_variables.png)
+
+After this you can run any request with **Send** button
+
+![postman_send_request](/postman_send_request.png)
+
+The **?XDEBUG_SESSION_START=PHPSTORM** part in the URL means you can debug in PhpStorm if Xdebug is enable.
+
+On the right side you can convert the request in different code snippet like curl
+
+![postman_curl](/postman_curl.png)
 
 ## Running Code Quality Tools
 

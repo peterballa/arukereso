@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        //Note: I dont like mass assignment
+        //Note: I dont like mass assignment, use setter
         $user = User::create([
             'name' => 'Test Elek',
             'email' => 'test.elek@gmail.com',

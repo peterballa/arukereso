@@ -33,6 +33,11 @@ class Order extends Model
         return $this->id;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function setName(string $name): Order
     {
         $this->name = $name;
@@ -127,6 +132,7 @@ class Order extends Model
         return $this->orderProducts;
     }
 
+    //TODO write Unit test
     public function getGrossTotalAttribute(): int
     {
         $grossTotal = 0;
