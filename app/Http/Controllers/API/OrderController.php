@@ -40,7 +40,8 @@ class OrderController extends Controller
      *                  "deliveryName", "deliveryZipCode", "deliveryCity", "deliveryAddress"},
      *       @OA\Property(property="name", type="string", example="John Doe"),
      *       @OA\Property(property="email", type="string", format="email", example="john.doe@gmail.com"),
-     *       @OA\Property(property="deliveryMode", type="string", example="personal"),
+     *       @OA\Property(property="deliveryMode", type="string",
+     *      enum="['personal', 'home_delivery']", example="personal"),
      *       @OA\Property(property="invoiceName", type="string", example="Anonym Ltd."),
      *       @OA\Property(property="invoiceZipCode", type="string", example="4033"),
      *       @OA\Property(property="invoiceCity", type="string", example="Debrecen"),
@@ -111,7 +112,7 @@ class OrderController extends Controller
      *    required=true,
      *    @OA\JsonContent(
      *       @OA\Property(property="id", type="integer", example="1"),
-     *       @OA\Property(property="status", type="string", example="új"),
+     *       @OA\Property(property="status", type="string", enum="['új', 'teljesített']", example="új"),
      *       @OA\Property(property="createdAtStart", type="string", example="2020-12-04"),
      *       @OA\Property(property="createdAtEnd", type="string", example="2020-12-06"),
      *    )
@@ -179,7 +180,7 @@ class OrderController extends Controller
      * @OA\RequestBody(
      *    required=true,
      *    @OA\JsonContent(
-     *       @OA\Property(property="status", type="string", example="új"),
+     *       @OA\Property(property="status", type="string", enum="['új', 'teljesített']", example="új"),
      *    )
      * ),
      * @OA\Response(

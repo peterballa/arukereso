@@ -12,6 +12,8 @@ class OrderCreateTest extends TestCase
 {
     private User $user;
     private string $token;
+    private string $uri;
+    private Client $client;
 
     public function setUp(): void
     {
@@ -26,8 +28,9 @@ class OrderCreateTest extends TestCase
         ]);
 
         $this->user->save();
-
         $this->token = $this->user->createToken('myapptoken')->plainTextToken;
+        $this->uri = env('APP_URL') . '/api/orders/create';
+        $this->client = new Client();
     }
 
     public function tearDown(): void
@@ -37,8 +40,7 @@ class OrderCreateTest extends TestCase
 
     public function testAuthentication(): void
     {
-        $client = new Client();
-        $response = $client->post(env('APP_URL') . '/api/orders/create', [
+        $response = $this->client->post($this->uri, [
             'http_errors' => false,
             'headers' => [
                 'Authorization' => 'Bearer invalid token',
@@ -105,13 +107,13 @@ class OrderCreateTest extends TestCase
         $this->assertEquals($payload['name'], $order->getName());
         $this->assertCount(count($payload['products']), $order->getOrderProducts());
         $this->assertEquals(12138, $order->getGrossTotalAttribute());
+        $this->assertEquals('új', $order->getStatus());
         //TODO another assertions
 
         $order->delete();
     }
-    /**
-     * @dataProvider dataproviderInvalidCases
-     */
+
+    /** @dataProvider dataproviderInvalidCases */
     public function testInvalidCases(array $payload, array $expectedResponse): void
     {
         $client = new Client();

@@ -115,6 +115,11 @@ class Order extends Model
         return $this;
     }
 
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
     public function setStatus(string $status): Order
     {
         $this->status = $status;
