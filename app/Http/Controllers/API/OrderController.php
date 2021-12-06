@@ -99,6 +99,37 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     *
+     * @OA\Post(
+     * path="/api/orders/query",
+     * summary="Query orders",
+     * description="Retrieve a list by filter",
+     * tags={"Orders"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    @OA\JsonContent(
+     *       @OA\Property(property="id", type="integer", example="1"),
+     *       @OA\Property(property="status", type="string", example="új"),
+     *       @OA\Property(property="createdAtStart", type="string", example="2020-12-04"),
+     *       @OA\Property(property="createdAtEnd", type="string", example="2020-12-06"),
+     *    )
+     * ),
+     * @OA\Response(
+     *     response=200,
+     *     description="Successful query",
+     *     @OA\JsonContent()
+     * ),
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthenticated",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="Unauthenticated.")
+     *     )
+     * )
+     * )
+     */
     public function query(OrderQueryRequest $request, OrderRepository $orderRepository): JsonResponse
     {
         try {
@@ -126,6 +157,56 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     *
+     * @OA\Post(
+     * path="/api/orders/updateStatus/{orderId}",
+     * summary="Update order status",
+     * description="Retrieve a list by filter",
+     * tags={"Orders"},
+     * security={{"bearer_token":{}}},
+     * @OA\Parameter(
+     *    description="ID of order",
+     *    in="path",
+     *    name="orderId",
+     *    required=true,
+     *    example=1,
+     *    @OA\Schema(
+     *       type="integer",
+     *       format="int64"
+     *    )
+     * ),
+     * @OA\RequestBody(
+     *    required=true,
+     *    @OA\JsonContent(
+     *       @OA\Property(property="status", type="string", example="új"),
+     *    )
+     * ),
+     * @OA\Response(
+     *     response=200,
+     *     description="Successful status update",
+     *     @OA\JsonContent()
+     * ),
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthenticated",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="Unauthenticated.")
+     *     )
+     * ),
+     * @OA\Response(
+     *     response=404,
+     *     description="Model not found",
+     *     @OA\JsonContent(
+     *       @OA\Property(
+     *          property="message",
+     *          type="string",
+     *          example="No query results for model [App\\Models\\Order] $ORDERID."
+     *      )
+     *     )
+     * )
+     * )
+     */
     public function updateStatus(OrderStatusUpdateRequest $request, Order $order): JsonResponse
     {
         try {
