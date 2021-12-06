@@ -1,6 +1,21 @@
 # Arukereso project by Balla Péter
 
+## Summary
+
+This project is an API, where by calling endpoints we can manage order process like:
+
+- Create order
+- Query orders by filters
+- Change order status
+
+The application store orders in the orders table and store theirs products in the order_products table.
+Any other tables like migrations, users and personal_access_tokens needs for migrating and authenticating. 
+
+Please before start, read the **Setup** section carefully.
+
 ## Setup
+
+Put the project into LAMP environment e.g.: Docker or WAMP or XAMPP.
 
 1. Install packages
 
@@ -10,7 +25,7 @@
 
 2. Set .env
 
-Copy or rename the .env.example to .env and fill the database part with the above
+Copy or rename the .env.example to .env and fill the database part with your database environment like e.g.:
 
 ```
 DB_CONNECTION=mysql
@@ -61,21 +76,21 @@ php artisan test
 
 There is a arukereso.postman_collection.json in the root. Please import in the postman and on the **Authorization** tab set the token, what you got on database seeding.
 
-![postman_auth](/postman_auth.png)
+![postman_auth](docs/images/postman_auth.png)
 
 On **Variables** tab please set the base_url
 
-![postman_variables](/postman_variables.png)
+![postman_variables](docs/images/postman_variables.png)
 
 After this you can run any request with **Send** button
 
-![postman_send_request](/postman_send_request.png)
+![postman_send_request](docs/images/postman_send_request.png)
 
 The **?XDEBUG_SESSION_START=PHPSTORM** part in the URL means you can debug in PhpStorm if Xdebug is enable.
 
 On the right side you can convert the request in different code snippet like cURL
 
-![postman_curl](/postman_curl.png)
+![postman_curl](docs/images/postman_curl.png)
 
 
 ##Swagger
@@ -88,7 +103,7 @@ To generate swagger API documentation, please run the command below. Then you ca
 
 For authorization please click on the green lock button with "Authorize title" and give the token in the below format.
 
-![swagger_authorization](/swagger_authorization.png)
+![swagger_authorization](docs/images/swagger_authorization.png)
 
 ## Running Code Quality Tools
 
