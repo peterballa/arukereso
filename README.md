@@ -93,7 +93,7 @@ On the right side you can convert the request in different code snippet like cUR
 ![postman_curl](docs/images/postman_curl.png)
 
 
-##Swagger
+## Swagger
 
 To generate swagger API documentation, please run the command below. Then you can reach the doc on the **/api/doc** route
 
